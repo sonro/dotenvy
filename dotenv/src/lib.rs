@@ -161,8 +161,8 @@ pub fn from_read<R: io::Read>(reader: R) -> Result<()> {
 ///   println!("{key}={val}");
 /// }
 /// ```
-pub fn from_read_iter<R: io::Read>(reader: R) -> Iter<R> {
-    Iter::new(reader)
+pub fn from_read_iter<R: io::Read>(_reader: R) -> Iter<R> {
+    Iter::new(_reader)
 }
 /// Loads the *.env* file from the current directory or parents. This is typically what you want.
 ///
