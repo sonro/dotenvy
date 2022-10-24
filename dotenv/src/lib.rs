@@ -174,8 +174,7 @@ pub fn from_read_iter<R: io::Read>(reader: R) -> Iter<R> {
 pub fn dotenv() -> Result<PathBuf> {
     let (path, iter) = Finder::new().find()?;
     iter.load()?;
-    // Ok(path)
-    Err(Error::LineParse("test".into(), 0))
+    Ok(path)
 }
 
 /// Returns an iterator over environment variables.
