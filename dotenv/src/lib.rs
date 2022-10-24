@@ -87,8 +87,8 @@ pub fn from_path<P: AsRef<Path>>(path: P) -> Result<()> {
 ///   println!("{key}={val}");
 /// }
 /// ```
-pub fn from_path_iter<P: AsRef<Path>>(path: P) -> Result<Iter<File>> {
-    Ok(Iter::new(File::open(path).map_err(Error::Io)?))
+pub fn from_path_iter<P: AsRef<Path>>(_path: P) -> Result<Iter<File>> {
+    Ok(Iter::new(File::open(_path).map_err(Error::Io)?))
 }
 
 /// Loads environment variables from the specified file.
