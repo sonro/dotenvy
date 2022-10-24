@@ -107,6 +107,7 @@ jobs:
           thresholds: "50 75"
       
       - name: Trim report
+        if: github.event_name == 'pull_request'
         # removes any line not containing a link or a comment
         # gets rid of unnecessary codcov info
         run: |
