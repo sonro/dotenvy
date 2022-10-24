@@ -172,9 +172,9 @@ pub fn from_read_iter<R: io::Read>(reader: R) -> Iter<R> {
 /// dotenvy::dotenv().unwrap();
 /// ```
 pub fn dotenv() -> Result<PathBuf> {
-    let (path, iter) = Finder::new().find()?;
+    let (path_var, iter) = Finder::new().find()?;
     iter.load()?;
-    Ok(path)
+    Ok(path_var)
 }
 
 /// Returns an iterator over environment variables.
