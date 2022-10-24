@@ -187,6 +187,6 @@ pub fn dotenv() -> Result<PathBuf> {
 /// }
 /// ```
 pub fn dotenv_iter() -> Result<iter::Iter<File>> {
-    let (_, iter) = Finder::new().find()?;
+    let (_f, iter) = Finder::new().find()?;
     Ok(iter)
 }
