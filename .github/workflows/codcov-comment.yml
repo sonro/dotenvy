@@ -17,7 +17,8 @@ jobs:
       - name: Get results
         uses: dawidd6/action-download-artifact@v2
         with:
-          run_id: ${{ env.RUN_ID }}
+          workflow: ci
+          run_id: ${{ env.PR_RUN_ID }}
           
           name: codecov_result
           path: corbetura.xml
