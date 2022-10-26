@@ -19,9 +19,7 @@ jobs:
         with:
           workflow: ci
           run_id: ${{ env.PR_RUN_ID }}
-          
           name: code-coverage-result
-          path: corbetura.xml
 
       - name: Create report
         uses: irongut/CodeCoverageSummary@v1.3.0
