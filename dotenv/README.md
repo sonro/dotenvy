@@ -37,6 +37,7 @@ fn main() {
 
 
 
+
 ### Loading at compile time
 
 The `dotenv!` macro provided by `dotenvy_macro` crate can be used.
