@@ -20,7 +20,7 @@ jobs:
           workflow: ci
           run_id: ${{ env.PR_RUN_ID }}
           
-          name: codecov_result
+          name: code-coverage-result
           path: corbetura.xml
 
       - name: Create report
