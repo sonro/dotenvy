@@ -177,6 +177,21 @@ pub fn dotenv() -> Result<PathBuf> {
     Ok(path)
 }
 
+pub fn dotenv_silent() {
+    if let Ok((_, iter)) = Finder::new().find() {
+        iter.load().ok();
+    }
+}
+
+pub fn dotenv_option() -> Option<PathBuf> {
+    if let Ok((path, iter)) = Finder::new().find() {
+        if iter.load().is_ok() {
+            return Some(path);
+        }
+    }
+    None
+}
+
 /// Returns an iterator over environment variables.
 ///
 /// # Examples
