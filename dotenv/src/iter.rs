@@ -28,6 +28,20 @@ impl<R: Read> Iter<R> {
     ///
     /// If a variable is specified multiple times within the reader's data,
     /// then the first occurrence is applied.
+    ///
+    /// # Safety
+    ///
+    /// Even though this function is currently not marked as `unsafe`, it will
+    /// be when the Rust 2024 edition is stabalized. This is tracked in
+    /// [rust#27970](https://github.com/rust-lang/rust/issues/27970).
+    ///
+    /// This function is safe to call in a single-threaded program.
+    ///
+    /// In multi-threaded programs, you must ensure there are no other threads
+    /// concurrently writing or *reading*(!) from the environment. You are
+    /// responsible for figuring out how to achieve this, but we strongly
+    /// suggest only using `dotenvy` before spawning any threads
+    /// (this includes the use of `tokio::main`).
     pub fn load(mut self) -> Result<()> {
         self.remove_bom()?;
 
